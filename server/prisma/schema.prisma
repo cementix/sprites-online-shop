@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  email    String          @unique
+  password String
+  roles    EnumUserRoles[] @default([BASIC])
+  basket   Basket?
+  sprites  Sprite[]
+
+  authorRating  Rating[] @relation("Author")
+  writtenRating Rating[] @relation("Writer")
+}
+
+model Basket {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user         User           @relation(fields: [userId], references: [id])
+  userId       Int            @unique
+  basketSprite BasketSprite[]
+}
+
+model BasketSprite {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  sprite   Sprite @relation(fields: [spriteId], references: [id])
+  spriteId Int    @unique
+
+  basket   Basket @relation(fields: [basketId], references: [id])
+  basketId Int
+}
+
+model Sprite {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  name   String
+  price  Int
+  rating Int    @default(0)
+  img    String
+
+  author   User @relation(fields: [authorId], references: [id])
+  authorId Int
+
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  spriteInfo   SpriteInfo[]
+  basketSprite BasketSprite?
+}
+
+model SpriteInfo {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  sprite      Sprite @relation(fields: [spriteId], references: [id])
+  spriteId    Int    @unique
+  title       String
+  description String
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  name    String   @unique
+  sprites Sprite[]
+}
+
+model Rating {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  writer   User @relation("Writer", fields: [writerId], references: [id])
+  writerId Int
+
+  author   User @relation("Author", fields: [authorId], references: [id])
+  authorId Int
+
+  rate Int
+}
+
+enum EnumUserRoles {
+  BASIC
+  AUTHOR
+  MODERATOR
+  ADMIN
+}
