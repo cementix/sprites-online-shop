@@ -1,5 +1,6 @@
 import React from "react";
 import WebsiteRoutes from "./components/WebsiteRoutes/WebsiteRoutes";
+import "./App.scss";
 
 function App() {
   return (

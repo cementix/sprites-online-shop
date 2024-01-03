@@ -5,4 +5,5 @@ export const REGISTRATION_ROUTE = "/registration";
 export const SHOP_ROUTE = "/shop";
 export const BASKET_ROUTE = "/basket";
 export const SPRITE_ROUTE = "/sprite";
+export const INFO_ROUTE = "/info";
 export const UNKNOWN_ROUTES = "/*";

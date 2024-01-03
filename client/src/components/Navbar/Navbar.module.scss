@@ -1,5 +1,88 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  position: fixed;
+  top: -75px;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  height: 75px;
+  transition: background-color 1s ease-in-out, 0.7s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  ul * {
+    color: black;
+    transition: 0.5s;
+  }
+}
+
+.navbar.visible {
+  top: 0;
+}
+
+.navbar.scrolled {
+  background-color: #2f2963;
+
+  ul * {
+    color: white;
+  }
+
+  ul {
+    :hover {
+      color: lightgreen;
+    }
+  }
+
+  .logo {
+    color: lightgreen;
+    transition: 0.3s;
+  }
+}
+
+.logo {
+  margin-left: 100px;
+  font-size: 3.5rem;
+  text-decoration: none;
+  font-family: "VT323";
+  color: #2f2963;
+
+  :hover {
+    border: solid 10px white;
+  }
+}
+
+ul {
+  margin-right: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+
+  :hover {
+    color: #2f2963;
+    transform: translateY(3px);
+  }
+}
+
+ul * {
+  text-decoration: none;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-size: 1.7rem;
+}
+
+.startButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c4a77d;
+  height: 40px;
+  width: 200px;
+  border-radius: 20px;
+}

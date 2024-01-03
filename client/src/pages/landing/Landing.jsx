@@ -1,8 +1,9 @@
 import React from 'react';
 
 const Landing = () => {
+
     return (
-        <div>
+        <div className='page'>
             Landing
         </div>
     );
