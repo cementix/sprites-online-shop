@@ -10,9 +10,14 @@ const Menu = ({ header, items, isActive }) => {
         <h3 className={styles.menuHeader}>{header}</h3>
         <ul>
           {items.map((item) => (
-            <li>
+            <li
+              key={item.value}
+              className={`${styles.menuItem} ${
+                item.value === "GET STARTED" ? styles.startButton : ""
+              }`}
+            >
               <Link to={item.link}>{item.value}</Link>
-              <i class="material-icons">{item.icon}</i>
+              <i className="material-icons">{item.icon}</i>
             </li>
           ))}
         </ul>

@@ -25,10 +25,17 @@
   right: 0;
   width: 30%;
   height: 100%;
-  background-color: #f8e559;
-  display: flex;
+  background: rgb(38, 26, 60);
+  background: radial-gradient(
+    circle,
+    rgba(38, 26, 60, 1) 0%,
+    rgba(22, 18, 18, 1) 100%
+  );
   flex-direction: column;
   align-items: center;
+  ul {
+    list-style: none;
+  }
 }
 
 .menuHeader {
@@ -36,7 +43,44 @@
   font-size: 2rem;
   font-family: "Ubuntu", sans-serif;
   font-weight: 700;
-  border-bottom: solid black 10px;
+  border-bottom: solid #bdffe4 4px;
   width: 100%;
   text-align: center;
+  color: #bdffe4;
+}
+
+.menuItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  font-family: "IBM Plex Mono", sans-serif;
+  * {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: #0fff9c;
+  }
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.startButton {
+  background-color: #bdffe4;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 20px;
+  * {
+    color: black;
+  }
+}
+
+@media (max-width: 800px) {
+  .blur {
+    right: 0;
+  }
+
+  .menuContent {
+    width: 100vw;
+  }
 }

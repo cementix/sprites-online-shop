@@ -24,13 +24,18 @@ const Navbar = ({ isVisible, isScrolled }) => {
     } else {
       burgerRef.current.setDirection(-1);
       burgerRef.current.play();
-      burgerRef.current.setSpeed(2.5);
+      burgerRef.current.setSpeed(3);
     }
     setIsPlayingForward(!isPlayingForward);
     setIsMenuActive(!isMenuActive);
   };
 
-  const items = [{ value: "Home", link: LANDING_ROUTE, icon: "anchor" }];
+  const items = [
+    { value: "HOME", link: LANDING_ROUTE, icon: "home" },
+    { value: "CATALOG", link: SHOP_ROUTE, icon: "shopping_cart" },
+    { value: "AUTHORS", link: LANDING_ROUTE, icon: "people" },
+    { value: "GET STARTED", link: LANDING_ROUTE, icon: "play_arrow" },
+  ];
 
   return (
     <nav
@@ -51,7 +56,7 @@ const Navbar = ({ isVisible, isScrolled }) => {
 
       <Lottie
         animationData={burger}
-        style={{ width: 100, height: 100, cursor: "pointer" }}
+        style={{ width: 70, height: 70, cursor: "pointer" }}
         lottieRef={burgerRef}
         loop={false}
         onClick={handleBurgerClick}
