@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero {
+  height: 700px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  h5 {
+    font-size: 1.5rem;
+    font-family: "Ubuntu";
+    color: #280404;
+  }
+
+  h1 {
+    font-size: 5rem;
+  }
+}
+
+.logo {
+  height: 500px;
+  transform: translateY(-200%);
+}
+
+.logo.animated {
+  transform: translateY(0) rotate(360deg);
+  transition: transform 1s ease-in-out;
+}
+
+.fadeMotto {
+  opacity: 0;
+}
+
+.fadeMotto.visible {
+  animation: fadeIn 2s forwards;
+  opacity: 1;
+}
+
+@media (max-width: 650px) {
+  .hero {
+    img {
+      height: 280px;
+    }
+    h1 {
+      font-size: 3rem;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
