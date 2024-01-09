@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Menu.module.scss";
 
-const Menu = ({ header, items, isActive }) => {
+const Menu = ({ header, items, isActive, handleBurgerClick }) => {
   return (
     <div className={`${styles.menu} ${isActive ? styles.active : ""}`}>
-      <div className={styles.blur} />
+      <div className={styles.blur} onClick={handleBurgerClick} />
       <div className={styles.menuContent}>
         <h3 className={styles.menuHeader}>{header}</h3>
         <ul>

@@ -63,7 +63,12 @@ const Navbar = ({ isVisible, isScrolled }) => {
         autoplay={false}
         className={styles.burgerButton}
       />
-      <Menu header={"Menu"} items={items} isActive={isMenuActive} />
+      <Menu
+        header={"Menu"}
+        items={items}
+        isActive={isMenuActive}
+        handleBurgerClick={handleBurgerClick}
+      />
     </nav>
   );
 };
