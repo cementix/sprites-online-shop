@@ -60,6 +60,7 @@ body {
   justify-content: center;
   width: 100vw;
   margin-top: 200px;
+  margin-bottom: 80px;
 }
 
 .infoBlock {
@@ -98,11 +99,11 @@ body {
 #catalogBlock {
   .infoContent {
     .infoText {
-      transform: translateX(-100%);
+      transform: translateX(-200%);
     }
 
     .infoAnimation {
-      transform: translateX(100%);
+      transform: translateX(200%);
     }
   }
 }
@@ -111,12 +112,12 @@ body {
   .infoContent {
     .infoText {
       transform: translateX(0);
-      transition: transform 1s ease-in-out;
+      transition: transform 1.5s ease-in-out;
     }
 
     .infoAnimation {
       transform: translateX(0);
-      transition: transform 1s ease-in-out;
+      transition: transform 1.5s ease-in-out;
     }
   }
 }
@@ -124,11 +125,11 @@ body {
 #artistBlock {
   .infoContent {
     .infoText {
-      transform: translateX(100%);
+      transform: translateX(200%);
     }
 
     .infoAnimation {
-      transform: translateX(-100%);
+      transform: translateX(-200%);
     }
   }
 }
@@ -145,6 +146,15 @@ body {
       transition: transform 1s ease-in-out;
     }
   }
+}
+
+.qualitiesWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin: 0 50px 0 50px;
 }
 
 ::-webkit-scrollbar {

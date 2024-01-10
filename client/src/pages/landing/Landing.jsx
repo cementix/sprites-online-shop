@@ -6,6 +6,7 @@ import Lottie from "lottie-react";
 import artistAnimation from "../../assets/animations/artist.json";
 import catalogAnimation from "../../assets/animations/catalog.json";
 import MainButton from "../../components/MainButton/MainButton";
+import QualityBlock from "./../../components/QualityBlock/QualityBlock";
 
 const Landing = () => {
   const [isLogoAnimated, setIsLogoAnimated] = useState(false);
@@ -50,6 +51,13 @@ const Landing = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [isCatalogVisible, isArtistVisible]);
+
+  const qualityBlockInfo = [
+    { header: "Diverse", icon: "burst_mode" },
+    { header: "Unique", icon: "fingerprint" },
+    { header: "Fast", icon: "flight" },
+    { header: "Open", icon: "remove_red_eye" },
+  ];
 
   return (
     <div className="page">
@@ -109,6 +117,12 @@ const Landing = () => {
           </div>
           <MainButton text="MORE INFO" className="infoButton" />
         </div>
+      </div>
+
+      <div className="qualitiesWrapper">
+        {qualityBlockInfo.map((block, index) => (
+          <QualityBlock key={index} header={block.header} icon={block.icon} />
+        ))}
       </div>
     </div>
   );
