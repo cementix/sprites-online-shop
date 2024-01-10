@@ -25,11 +25,11 @@
   right: 0;
   width: 30%;
   height: 100%;
-  background: rgb(38, 26, 60);
+  background: rgb(164, 144, 124);
   background: radial-gradient(
     circle,
-    rgba(38, 26, 60, 1) 0%,
-    rgba(22, 18, 18, 1) 100%
+    rgba(164, 144, 124, 1) 0%,
+    rgba(50, 30, 30, 1) 100%
   );
   flex-direction: column;
   align-items: center;
@@ -40,13 +40,13 @@
 
 .menuHeader {
   padding: 10px;
-  font-size: 2rem;
+  font-size: 3rem;
   font-family: "Ubuntu", sans-serif;
   font-weight: 700;
-  border-bottom: solid #bdffe4 4px;
+  border-bottom: solid brown 7px;
   width: 100%;
   text-align: center;
-  color: #bdffe4;
+  color: gold;
 }
 
 .menuItem {
@@ -58,20 +58,20 @@
   font-family: "IBM Plex Mono", sans-serif;
   * {
     text-decoration: none;
-    font-size: 1.3rem;
-    color: #0fff9c;
+    font-size: 2rem;
+    color: whitesmoke;
   }
   margin-top: 30px;
   cursor: pointer;
 }
 
 .startButton {
-  background-color: #bdffe4;
+  background-color: goldenrod;
   margin-left: 10%;
   margin-right: 10%;
   border-radius: 20px;
   * {
-    color: black;
+    color: #280404;
   }
 }
 

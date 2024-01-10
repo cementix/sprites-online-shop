@@ -23,11 +23,11 @@
 }
 
 .navbar.scrolled {
-  background-color: rgb(0, 36, 31);
+  background-color: #3c0c0c;
   transition: all 1s ease-in-out;
 
   .logo {
-    color: lightgreen;
+    color: goldenrod;
     transition: 0.3s;
   }
 }
@@ -37,7 +37,7 @@
   font-size: 3.5rem;
   text-decoration: none;
   font-family: "VT323";
-  color: #2f2963;
+  color: #280404;
 
   :hover {
     border: solid 10px white;
@@ -57,7 +57,7 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(to right, lightgreen, darkblue);
+    background: linear-gradient(to right, yellow, brown);
     z-index: 1;
     cursor: default;
   }
