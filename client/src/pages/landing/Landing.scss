@@ -17,6 +17,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-top: 50px;
 
   h3 {
     font-size: 1.5rem;
@@ -58,6 +59,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 100vw;
+  margin-top: 200px;
 }
 
 .infoBlock {
@@ -90,6 +92,58 @@ body {
 
 .infoAnimation {
   height: 400px;
+}
+
+#catalogBlock {
+  .infoContent {
+    .infoText {
+      transform: translateX(-100%);
+    }
+
+    .infoAnimation {
+      transform: translateX(100%);
+    }
+  }
+}
+
+#catalogBlock.visible {
+  .infoContent {
+    .infoText {
+      transform: translateX(0);
+      transition: transform 1s ease-in-out;
+    }
+
+    .infoAnimation {
+      transform: translateX(0);
+      transition: transform 1s ease-in-out;
+    }
+  }
+}
+
+#artistBlock {
+  .infoContent {
+    .infoText {
+      transform: translateX(100%);
+    }
+
+    .infoAnimation {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+#artistBlock.visible {
+  .infoContent {
+    .infoText {
+      transform: translateX(0);
+      transition: transform 1s ease-in-out;
+    }
+
+    .infoAnimation {
+      transform: translateX(0);
+      transition: transform 1s ease-in-out;
+    }
+  }
 }
 
 @media (max-width: 650px) {

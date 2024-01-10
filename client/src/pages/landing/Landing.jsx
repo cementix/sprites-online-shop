@@ -10,6 +10,8 @@ import MainButton from "../../components/MainButton/MainButton";
 const Landing = () => {
   const [isLogoAnimated, setIsLogoAnimated] = useState(false);
   const [isMottoVisible, setisMottoVisible] = useState(false);
+  const [isCatalogVisible, setIsCatalogVisible] = useState(false);
+  const [isArtistVisible, setIsArtistVisible] = useState(false);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -20,11 +22,34 @@ const Landing = () => {
       setisMottoVisible(true);
     }, 2000);
 
+    const handleScroll = () => {
+      const currentPosition = window.scrollY || window.pageYOffset;
+
+      if (!isCatalogVisible) {
+        const catalogElement = document.getElementById("catalogBlock");
+        if (catalogElement) {
+          const rectCatalog = catalogElement.getBoundingClientRect();
+          setIsCatalogVisible(rectCatalog.top < window.innerHeight - 200);
+        }
+      }
+
+      if (!isArtistVisible) {
+        const artistElement = document.getElementById("artistBlock");
+        if (artistElement) {
+          const rectArtist = artistElement.getBoundingClientRect();
+          setIsArtistVisible(rectArtist.top < window.innerHeight - 200);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
       clearTimeout(timeoutId);
       clearTimeout(mottoTimeoutId);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isCatalogVisible, isArtistVisible]);
 
   return (
     <div className="page">
@@ -46,7 +71,10 @@ const Landing = () => {
       </div>
 
       <div className="infoWrapper">
-        <div className="infoBlock">
+        <div
+          id="catalogBlock"
+          className={`infoBlock ${isCatalogVisible ? "visible" : ""}`}
+        >
           <div className="infoContent">
             <div className="infoText">
               <h4>EXPLORE CATALOG</h4>
@@ -64,7 +92,10 @@ const Landing = () => {
           <MainButton text="CATALOG" className="infoButton" />
         </div>
 
-        <div className="infoBlock">
+        <div
+          id="artistBlock"
+          className={`infoBlock ${isArtistVisible ? "visible" : ""}`}
+        >
           <div className="infoContent">
             <Lottie animationData={artistAnimation} className="infoAnimation" />
             <div className="infoText">
