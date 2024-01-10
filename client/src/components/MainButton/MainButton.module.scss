@@ -1,0 +1,16 @@
+.mainButton {
+  border: 0;
+  width: 300px;
+  font-family: "IBM Plex Mono";
+  font-size: 1.5rem;
+  cursor: pointer;
+  height: 50px;
+  border-radius: 20px;
+  background: rgb(85, 55, 55);
+  background: radial-gradient(
+    circle,
+    rgba(85, 55, 55, 1) 0%,
+    rgba(40, 35, 35, 1) 100%
+  );
+  color: white;
+}

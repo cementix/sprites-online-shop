@@ -1,11 +1,16 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: content-box;
+}
+
+html,
+body {
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .hero {
-  height: 700px;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -13,7 +18,7 @@
   align-items: center;
   text-align: center;
 
-  h5 {
+  h3 {
     font-size: 1.5rem;
     font-family: "Ubuntu";
     color: #280404;
@@ -21,6 +26,10 @@
 
   h1 {
     font-size: 5rem;
+  }
+
+  * {
+    box-sizing: content-box;
   }
 }
 
@@ -41,6 +50,46 @@
 .fadeMotto.visible {
   animation: fadeIn 2s forwards;
   opacity: 1;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infoContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infoText {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  h4 {
+    font-family: "Josefin Sans";
+    font-size: 2.4rem;
+  }
+
+  p {
+    font-family: "Ubuntu";
+    font-size: 1.2rem;
+  }
+}
+
+.infoAnimation {
+  height: 400px;
 }
 
 @media (max-width: 650px) {

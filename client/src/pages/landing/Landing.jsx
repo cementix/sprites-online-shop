@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/images/mainLogo.svg";
-import styles from "./Landing.module.scss";
+import "./Landing.scss";
 import TypeWriterEffect from "react-typewriter-effect";
+import Lottie from "lottie-react";
+import artistAnimation from "../../assets/animations/artist.json";
+import catalogAnimation from "../../assets/animations/catalog.json";
+import MainButton from "../../components/MainButton/MainButton";
 
 const Landing = () => {
   const [isLogoAnimated, setIsLogoAnimated] = useState(false);
@@ -24,32 +28,56 @@ const Landing = () => {
 
   return (
     <div className="page">
-      <div className={styles.hero}>
+      <div className="hero">
         <img
           src={logo}
-          className={`${styles.logo} ${isLogoAnimated ? styles.animated : ""}`}
+          className={`logo ${isLogoAnimated ? "animated" : ""}`}
         />
         <TypeWriterEffect
           textStyle={{ fontFamily: "Josefin Sans" }}
           startDelay={400}
           text="SpriteSpot"
           typeSpeed={100}
-          className={styles.heroName}
+          className="heroName"
         />
-        <h5
-          className={`${styles.fadeMotto} ${
-            isMottoVisible ? styles.visible : ""
-          }`}
-        >
+        <h3 className={`fadeMotto ${isMottoVisible ? "visible" : ""}`}>
           Unleash your imagination!
-        </h5>
+        </h3>
       </div>
 
-      <div className={styles.infoWrapper}>
-        <div className={styles.infoBlock}>
-          <h3></h3>
+      <div className="infoWrapper">
+        <div className="infoBlock">
+          <div className="infoContent">
+            <div className="infoText">
+              <h4>EXPLORE CATALOG</h4>
+              <p>
+                Dive into our curated catalog of enchanting 2D sprites,
+                meticulously designed to elevate your projects. Unleash your
+                creativity with a diverse range of sprites.
+              </p>
+            </div>
+            <Lottie
+              animationData={catalogAnimation}
+              className="infoAnimation"
+            />
+          </div>
+          <MainButton text="CATALOG" className="infoButton" />
         </div>
-        <div className={styles.infoBlock}></div>
+
+        <div className="infoBlock">
+          <div className="infoContent">
+            <Lottie animationData={artistAnimation} className="infoAnimation" />
+            <div className="infoText">
+              <h4>BECOME A CREATOR</h4>
+              <p>
+                Showcase your 2D sprite artistry on our platform. Become a
+                featured creator, share your work globally, and reap the rewards
+                of joining our thriving community of artists.
+              </p>
+            </div>
+          </div>
+          <MainButton text="MORE INFO" className="infoButton" />
+        </div>
       </div>
     </div>
   );
