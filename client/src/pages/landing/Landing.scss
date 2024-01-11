@@ -82,6 +82,7 @@ body {
   flex-direction: column;
   gap: 20px;
   h4 {
+    color: black;
     font-family: "Josefin Sans";
     font-size: 2.4rem;
   }
@@ -154,7 +155,41 @@ body {
   align-items: center;
   gap: 25px;
   flex-wrap: wrap;
-  margin: 0 50px 0 50px;
+  margin: 150px 50px 0 50px;
+}
+
+.qualitiesColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.qualitiesColumnRight {
+  transform: translateX(400%);
+}
+
+.qualitiesColumnRight.visible {
+  transform: translateX(0);
+  transition: transform 1s ease-in-out;
+  transition-delay: 1s;
+}
+
+.qualitiesColumnLeft {
+  transform: translateX(-400%);
+}
+
+.qualitiesColumnLeft.visible {
+  transform: translateX(0);
+  transition: transform 1s ease-in-out;
+}
+
+.middleQuality {
+  opacity: 0;
+}
+
+.middleQuality {
+  animation: fadeIn 1s forwards;
+  animation-delay: 2s;
 }
 
 ::-webkit-scrollbar {
@@ -181,6 +216,10 @@ body {
     h1 {
       font-size: 3rem;
     }
+  }
+
+  .qualitiesWrapper {
+    margin-top: -100px;
   }
 }
 

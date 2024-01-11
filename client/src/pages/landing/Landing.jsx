@@ -13,6 +13,7 @@ const Landing = () => {
   const [isMottoVisible, setisMottoVisible] = useState(false);
   const [isCatalogVisible, setIsCatalogVisible] = useState(false);
   const [isArtistVisible, setIsArtistVisible] = useState(false);
+  const [isQualitiesAnimated, setIsQualitiesAnimated] = useState(false);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -24,8 +25,6 @@ const Landing = () => {
     }, 2000);
 
     const handleScroll = () => {
-      const currentPosition = window.scrollY || window.pageYOffset;
-
       if (!isCatalogVisible) {
         const catalogElement = document.getElementById("catalogBlock");
         if (catalogElement) {
@@ -41,6 +40,14 @@ const Landing = () => {
           setIsArtistVisible(rectArtist.top < window.innerHeight - 200);
         }
       }
+
+      if (!isQualitiesAnimated) {
+        const qualitiesElement = document.getElementById("qualitiesWrapper");
+        if (qualitiesElement) {
+          const rectQualities = qualitiesElement.getBoundingClientRect();
+          setIsQualitiesAnimated(rectQualities.top < window.innerHeight - 200);
+        }
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -50,14 +57,7 @@ const Landing = () => {
       clearTimeout(mottoTimeoutId);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isCatalogVisible, isArtistVisible]);
-
-  const qualityBlockInfo = [
-    { header: "Diverse", icon: "burst_mode" },
-    { header: "Unique", icon: "fingerprint" },
-    { header: "Fast", icon: "flight" },
-    { header: "Open", icon: "remove_red_eye" },
-  ];
+  }, [isCatalogVisible, isArtistVisible, isQualitiesAnimated]);
 
   return (
     <div className="page">
@@ -119,10 +119,30 @@ const Landing = () => {
         </div>
       </div>
 
-      <div className="qualitiesWrapper">
-        {qualityBlockInfo.map((block, index) => (
-          <QualityBlock key={index} header={block.header} icon={block.icon} />
-        ))}
+      <div className="qualitiesWrapper" id="qualitiesWrapper">
+        <div
+          className={`qualitiesColumn qualitiesColumnLeft ${
+            isQualitiesAnimated ? "visible" : ""
+          }`}
+        >
+          <QualityBlock header="Diverse" icon="burst_mode" />
+          <QualityBlock header="Unique" icon="fingerprint" />
+        </div>
+
+        <div
+          className={`middleQuality ${isQualitiesAnimated ? "visible" : ""}`}
+        >
+          <QualityBlock header="Safe" icon="beenhere" />
+        </div>
+
+        <div
+          className={`qualitiesColumn qualitiesColumnRight ${
+            isQualitiesAnimated ? "visible" : ""
+          }`}
+        >
+          <QualityBlock header="Fast" icon="flight" />
+          <QualityBlock header="Open" icon="remove_red_eye" />
+        </div>
       </div>
     </div>
   );
