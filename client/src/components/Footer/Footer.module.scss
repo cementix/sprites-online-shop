@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.footer {
+  height: 200px;
+  background-color: #220404;
+  display: flex;
+  justify-content: space-around;
+}
+
+.blockHeader {
+  color: whitesmoke;
+  font-family: "Josefin Sans";
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  * {
+    font-size: 2rem;
+  }
+}

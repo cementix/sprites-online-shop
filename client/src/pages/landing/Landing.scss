@@ -100,11 +100,11 @@ body {
 #catalogBlock {
   .infoContent {
     .infoText {
-      transform: translateX(-200%);
+      transform: translateX(-300%);
     }
 
     .infoAnimation {
-      transform: translateX(200%);
+      transform: translateX(300%);
     }
   }
 }
@@ -126,11 +126,11 @@ body {
 #artistBlock {
   .infoContent {
     .infoText {
-      transform: translateX(200%);
+      transform: translateX(300%);
     }
 
     .infoAnimation {
-      transform: translateX(-200%);
+      transform: translateX(-300%);
     }
   }
 }
@@ -156,6 +156,7 @@ body {
   gap: 25px;
   flex-wrap: wrap;
   margin: 150px 50px 0 50px;
+  padding-bottom: 130px;
 }
 
 .qualitiesColumn {
@@ -165,7 +166,7 @@ body {
 }
 
 .qualitiesColumnRight {
-  transform: translateX(400%);
+  transform: translateX(500%);
 }
 
 .qualitiesColumnRight.visible {
@@ -175,7 +176,7 @@ body {
 }
 
 .qualitiesColumnLeft {
-  transform: translateX(-400%);
+  transform: translateX(-500%);
 }
 
 .qualitiesColumnLeft.visible {

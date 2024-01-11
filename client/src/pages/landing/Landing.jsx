@@ -29,7 +29,7 @@ const Landing = () => {
         const catalogElement = document.getElementById("catalogBlock");
         if (catalogElement) {
           const rectCatalog = catalogElement.getBoundingClientRect();
-          setIsCatalogVisible(rectCatalog.top < window.innerHeight - 200);
+          setIsCatalogVisible(rectCatalog.top < window.innerHeight - 270);
         }
       }
 
@@ -37,7 +37,7 @@ const Landing = () => {
         const artistElement = document.getElementById("artistBlock");
         if (artistElement) {
           const rectArtist = artistElement.getBoundingClientRect();
-          setIsArtistVisible(rectArtist.top < window.innerHeight - 200);
+          setIsArtistVisible(rectArtist.top < window.innerHeight - 270);
         }
       }
 

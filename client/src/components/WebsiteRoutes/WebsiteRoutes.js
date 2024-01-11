@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { publicRoutes } from "./PublicRoutes";
 import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 const WebsiteRoutes = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -39,6 +40,7 @@ const WebsiteRoutes = () => {
             <Route path={path} element={element} key={key} exact />
           ))}
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
