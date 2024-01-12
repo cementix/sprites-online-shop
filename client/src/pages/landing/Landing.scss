@@ -113,12 +113,12 @@ body {
   .infoContent {
     .infoText {
       transform: translateX(0);
-      transition: transform 1.5s ease-in-out;
+      transition: transform 1s ease-in-out;
     }
 
     .infoAnimation {
       transform: translateX(0);
-      transition: transform 1.5s ease-in-out;
+      transition: transform 1s ease-in-out;
     }
   }
 }

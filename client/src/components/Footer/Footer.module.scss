@@ -11,13 +11,35 @@
   justify-content: space-around;
 }
 
-.blockHeader {
-  color: whitesmoke;
+.footerHeader {
+  font-size: 2.4rem;
+  color: white;
   font-family: "Josefin Sans";
+  text-align: center;
+  margin: 18px 0 18px 0;
+}
+
+.footerContent {
+  font-size: 0.7rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  list-style: none;
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 14px;
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    i {
+      font-size: 1.4rem;
+    }
+  }
+
   * {
-    font-size: 2rem;
+    text-decoration: none;
+    color: gold;
   }
 }
