@@ -97,7 +97,11 @@ const Landing = () => {
               className="infoAnimation"
             />
           </div>
-          <MainButton text="CATALOG" className="infoButton" />
+          <div
+            className={`infoButtonWrapper ${isCatalogVisible ? "visible" : ""}`}
+          >
+            <MainButton text="CATALOG" className="infoButton" />
+          </div>
         </div>
 
         <div
@@ -115,7 +119,11 @@ const Landing = () => {
               </p>
             </div>
           </div>
-          <MainButton text="MORE INFO" className="infoButton" />
+          <div
+            className={`infoButtonWrapper ${isArtistVisible ? "visible" : ""}`}
+          >
+            <MainButton text="MORE INFO" className="infoButton" />
+          </div>
         </div>
       </div>
 
