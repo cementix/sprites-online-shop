@@ -65,6 +65,7 @@ const Landing = () => {
         <img
           src={logo}
           className={`logo ${isLogoAnimated ? "animated" : ""}`}
+          alt=""
         />
         <TypeWriterEffect
           textStyle={{ fontFamily: "Josefin Sans" }}

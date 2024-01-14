@@ -1,6 +1,7 @@
-import { LANDING_ROUTE, SHOP_ROUTE } from "../../utils/consts";
+import { LANDING_ROUTE, SHOP_ROUTE, UNKNOWN_ROUTES } from "../../utils/consts";
 import Shop from "../../pages/shop/Shop.jsx";
 import Landing from "../../pages/landing/Landing.jsx";
+import UnknownPage from "../../pages/unknown/UnknownPage.jsx";
 
 export const publicRoutes = [
   {
@@ -11,6 +12,11 @@ export const publicRoutes = [
   {
     path: LANDING_ROUTE,
     element: <Landing />,
-    key: 1,
+    key: 2,
+  },
+  {
+    path: UNKNOWN_ROUTES,
+    element: <UnknownPage />,
+    key: 3,
   },
 ];

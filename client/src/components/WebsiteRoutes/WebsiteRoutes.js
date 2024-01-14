@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { publicRoutes } from "./PublicRoutes";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import { Context } from "../../index";
+import { authRoutes } from "./AuthRoutes";
 
 const WebsiteRoutes = () => {
+  const { user } = useContext(Context);
+
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isNavScrolled, setIsNavScrolled] = useState(false);
 
@@ -36,6 +40,10 @@ const WebsiteRoutes = () => {
       <BrowserRouter>
         <Navbar isVisible={isNavVisible} isScrolled={isNavScrolled} />
         <Routes className="page">
+          {user.isAuth &&
+            authRoutes.map(({ path, element, key }) => (
+              <Route path={path} element={element} key={key} exact />
+            ))}
           {publicRoutes.map(({ path, element, key }) => (
             <Route path={path} element={element} key={key} exact />
           ))}
