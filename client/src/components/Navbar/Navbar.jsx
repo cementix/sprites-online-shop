@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import {
   INFO_ROUTE,
   LANDING_ROUTE,
-  REGISTRATION_ROUTE,
+  AUTH_ROUTE,
   SHOP_ROUTE,
 } from "../../utils/consts";
 import Lottie from "lottie-react";
@@ -34,7 +34,7 @@ const Navbar = ({ isVisible, isScrolled }) => {
     { value: "HOME", link: LANDING_ROUTE, icon: "home" },
     { value: "CATALOG", link: SHOP_ROUTE, icon: "shopping_cart" },
     { value: "AUTHORS", link: LANDING_ROUTE, icon: "people" },
-    { value: "GET STARTED", link: LANDING_ROUTE, icon: "play_arrow" },
+    { value: "GET STARTED", link: AUTH_ROUTE, icon: "play_arrow" },
   ];
 
   return (

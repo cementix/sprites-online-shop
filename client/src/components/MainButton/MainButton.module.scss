@@ -1,6 +1,5 @@
 .mainButton {
   border: 0;
-  width: 300px;
   font-family: "IBM Plex Mono";
   font-size: 1.5rem;
   cursor: pointer;
@@ -13,4 +12,8 @@
     rgba(40, 35, 35, 1) 100%
   );
   color: white;
+  &:active {
+    transform: scale(0.95);
+    transition: none;
+  }
 }

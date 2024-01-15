@@ -5,6 +5,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { Context } from "../../index";
 import { authRoutes } from "./AuthRoutes";
+import { AUTH_ROUTE } from "../../utils/consts";
 
 const WebsiteRoutes = () => {
   const { user } = useContext(Context);
@@ -43,7 +44,9 @@ const WebsiteRoutes = () => {
           {authRoutes.map(({ path, element, key }) => (
             <Route
               path={path}
-              element={user.isAuth ? element : <Navigate to="/login" replace />}
+              element={
+                user.isAuth ? element : <Navigate to={AUTH_ROUTE} replace />
+              }
               key={key}
               exact
             />
