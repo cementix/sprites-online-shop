@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { publicRoutes } from "./PublicRoutes";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -40,10 +40,14 @@ const WebsiteRoutes = () => {
       <BrowserRouter>
         <Navbar isVisible={isNavVisible} isScrolled={isNavScrolled} />
         <Routes className="page">
-          {user.isAuth &&
-            authRoutes.map(({ path, element, key }) => (
-              <Route path={path} element={element} key={key} exact />
-            ))}
+          {authRoutes.map(({ path, element, key }) => (
+            <Route
+              path={path}
+              element={user.isAuth ? element : <Navigate to="/login" replace />}
+              key={key}
+              exact
+            />
+          ))}
           {publicRoutes.map(({ path, element, key }) => (
             <Route path={path} element={element} key={key} exact />
           ))}
