@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./MainButton.module.scss";
 
-const MainButton = ({ text, width }) => {
+const MainButton = ({ children, width }) => {
   return (
     <button
       className={styles.mainButton}
       style={{ width: width ? width : "300px" }}
     >
-      {text}
+      {children}
     </button>
   );
 };

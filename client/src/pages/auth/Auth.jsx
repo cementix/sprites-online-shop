@@ -1,68 +1,88 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import "./Auth.scss";
 import MainButton from "../../components/MainButton/MainButton";
 import SecondaryButton from "../../components/SecondaryButton/SecondaryButton";
 import MainInput from "../../components/MainInput/MainInput";
+import Lottie from "lottie-react";
+import login from "../../assets/animations/login.json";
+import register from "../../assets/animations/register.json";
 
 const Auth = () => {
-  const handleLoginClick = () => {
-    const container = document.getElementById("container");
-    container.classList.remove("active");
+  const handleRegisterClick = () => {
+    const loginWrapper = document.getElementById("loginWrapper");
+    const registrationWrapper = document.getElementById("registrationWrapper");
+    loginWrapper.classList.remove("loginHidden");
+    registrationWrapper.classList.add("registrationHidden");
   };
 
-  const handleRegisterClick = () => {
-    const container = document.getElementById("container");
-    container.classList.add("active");
+  const handleLoginClick = () => {
+    const loginWrapper = document.getElementById("loginWrapper");
+    const registrationWrapper = document.getElementById("registrationWrapper");
+    registrationWrapper.classList.remove("registrationHidden");
+    loginWrapper.classList.add("loginHidden");
   };
 
   return (
     <div className="authWrapper">
-      <div className="container" id="container">
-        <div className="formContainer signUp">
-          <form>
-            <h1>Create Account</h1>
-            <span>or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Sign Up</button>
-          </form>
-        </div>
-        <div className="formContainer signIn">
-          <form>
-            <h1>Sign In</h1>
-            <span>or use your email password</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <a href="#">Forget Your Password?</a>
-            <button>Sign In</button>
-          </form>
-        </div>
-        <div className="toggleContainer">
-          <div className="toggle">
-            <div className="togglePanel toggleLeft">
-              <h1>Welcome Back!</h1>
-              <p>Enter your personal details to use all of site features</p>
-              <button className="hidden" id="login" onClick={handleLoginClick}>
-                Sign In
-              </button>
-            </div>
-            <div className="togglePanel toggleRight">
-              <h1>Hello, Friend!</h1>
-              <p>
-                Register with your personal details to use all of site features
-              </p>
-              <button
-                className="hidden"
-                id="register"
-                onClick={handleRegisterClick}
-              >
-                Sign Up
-              </button>
-            </div>
+      <div className="formWrapper loginWrapper loginHidden" id="loginWrapper">
+        <Lottie animationData={login} className="formAnimation" />
+        <form action="#">
+          <h2>Login</h2>
+          <div className="inputBlock">
+            <i className="material-icons">email</i>
+            <MainInput type="text" placeholder="Email" />
           </div>
-        </div>
+
+          <div className="inputBlock">
+            <i className="material-icons">lock</i>
+            <MainInput type="password" placeholder="Password" />
+          </div>
+
+          <Link className="loginLink">Forgot your password?</Link>
+          <MainButton className="formButton" width="200px">
+            LOGIN
+          </MainButton>
+          <p>
+            Don't have an account?{" "}
+            <span onClick={handleLoginClick} className="toggleSpan loginSpan">
+              Sign Up
+            </span>
+          </p>
+        </form>
+      </div>
+
+      <div className="formWrapper registrationWrapper" id="registrationWrapper">
+        <Lottie animationData={register} className="formAnimation" />
+        <form action="#">
+          <h2>Register</h2>
+          <div className="inputBlock">
+            <i className="material-icons">email</i>
+            <MainInput type="text" placeholder="Email" />
+          </div>
+
+          <div className="inputBlock">
+            <i className="material-icons">lock</i>
+            <MainInput type="password" placeholder="Password" />
+          </div>
+
+          <div className="inputBlock">
+            <i className="material-icons">lock_outline</i>
+            <MainInput type="password" placeholder="Confirm password" />
+          </div>
+          <MainButton className="formButton" width="200px">
+            REGISTER
+          </MainButton>
+          <p>
+            Already have an account?{" "}
+            <span
+              onClick={handleRegisterClick}
+              className="toggleSpan registerSpan"
+            >
+              Sign In
+            </span>
+          </p>
+        </form>
       </div>
     </div>
   );
