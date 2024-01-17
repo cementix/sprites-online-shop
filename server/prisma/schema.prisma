@@ -16,9 +16,7 @@ model User {
   password String
   roles    EnumUserRoles[] @default([BASIC])
   basket   Basket?
-  sprites  Sprite[]
 
-  authorRating  Rating[] @relation("Author")
   writtenRating Rating[] @relation("Writer")
 }
 
@@ -53,9 +51,6 @@ model Sprite {
   price  Int
   rating Int    @default(0)
   img    String
-
-  author   User @relation(fields: [authorId], references: [id])
-  authorId Int
 
   category   Category @relation(fields: [categoryId], references: [id])
   categoryId Int
@@ -92,8 +87,7 @@ model Rating {
   writer   User @relation("Writer", fields: [writerId], references: [id])
   writerId Int
 
-  author   User @relation("Author", fields: [authorId], references: [id])
-  authorId Int
+  spriteId Int
 
   rate Int
 }
