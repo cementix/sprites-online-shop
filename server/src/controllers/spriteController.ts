@@ -34,24 +34,31 @@ class SpriteController {
     try {
       let { category, limit, page }: any = req.query;
       page = page || 1;
-      limit = limit || 1;
-      let offset = page * limit - limit;
+      limit = limit || 10;
+      const skip: number = (page - 1) * limit;
+
       let sprites;
+
       if (!category) {
-        sprites = await prisma.sprite.findMany({});
+        sprites = await prisma.sprite.findMany({
+          skip: skip,
+          take: parseInt(limit),
+        });
       } else {
         sprites = await prisma.sprite.findMany({
           where: {
             categoryId: parseInt(category),
           },
+          skip: skip,
+          take: limit,
         });
       }
-      return res.json(sprites);
+      return res.json({ count: sprites.length, sprites });
     } catch (e) {
-      next(ApiError.badRequest("Getting sprites error!"));
+      next(ApiError.badRequest("Getting sprites e rror!"));
     }
   }
-  async getSpriteById(req: Request, res: Response) {}
+  async getSpriteById(req: Request, res: Response, next: NextFunction) {}
 }
 
 export default new SpriteController();
