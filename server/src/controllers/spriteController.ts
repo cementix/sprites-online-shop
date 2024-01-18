@@ -15,7 +15,6 @@ class SpriteController {
     const { name, price, category } = req.body;
     const { img }: any = req.files;
     let fileName = uuidv4() + ".jpg";
-    img.mv(path.resolve(__dirname, "..", "static", fileName));
     try {
       const sprite: Sprite = await prisma.sprite.create({
         data: {
@@ -25,13 +24,33 @@ class SpriteController {
           img: fileName,
         },
       });
-      console.log(sprite);
+      img.mv(path.resolve(__dirname, "..", "static", fileName));
       return res.json(sprite);
     } catch (e) {
       next(ApiError.badRequest("Sprite create error!"));
     }
   }
-  async getAllSprites(req: Request, res: Response) {}
+  async getAllSprites(req: Request, res: Response, next: NextFunction) {
+    try {
+      let { category, limit, page }: any = req.query;
+      page = page || 1;
+      limit = limit || 1;
+      let offset = page * limit - limit;
+      let sprites;
+      if (!category) {
+        sprites = await prisma.sprite.findMany({});
+      } else {
+        sprites = await prisma.sprite.findMany({
+          where: {
+            categoryId: parseInt(category),
+          },
+        });
+      }
+      return res.json(sprites);
+    } catch (e) {
+      next(ApiError.badRequest("Getting sprites error!"));
+    }
+  }
   async getSpriteById(req: Request, res: Response) {}
 }
 
