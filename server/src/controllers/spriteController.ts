@@ -58,7 +58,14 @@ class SpriteController {
       next(ApiError.badRequest("Getting sprites e rror!"));
     }
   }
-  async getSpriteById(req: Request, res: Response, next: NextFunction) {}
+  async getSpriteById(req: Request, res: Response, next: NextFunction) {
+    const { id } = req.params;
+    const sprite = await prisma.sprite.findUnique({
+      where: {
+        id: parseInt(id),
+      },
+    });
+  }
 }
 
 export default new SpriteController();
